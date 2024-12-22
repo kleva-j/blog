@@ -2,10 +2,13 @@
 import background from "@/assets/background.svg";
 import astroLogo from "@/assets/astro.svg";
 
+import { ModeToggle } from '@/components/mode-toggle';
+import { SvgTexture } from "@/components/texture";
 import { Button } from "@/components/ui/button";
 ---
 
-<div id="container">
+<div id="container" class="relative">
+  <SvgTexture className="fixed inset-0 -z-10 min-h-screen w-full" />
   <img id="background" src={background.src} alt="" fetchpriority="high" />
   <main>
     <section id="hero">
@@ -35,6 +38,7 @@ import { Button } from "@/components/ui/button";
             >
           </a>
         </Button>
+        <ModeToggle client:load />
       </section>
     </section>
   </main>
