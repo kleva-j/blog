@@ -1,9 +1,15 @@
+import defaultTheme from "tailwindcss/defaultTheme";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Playwrite GB S Variable", ...defaultTheme.fontFamily.sans],
+        serif: ["Playwrite GB J Variable", ...defaultTheme.fontFamily.serif],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
