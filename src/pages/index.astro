@@ -3,14 +3,14 @@ import Content from "@/components/Content.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Layout from "@/layouts/Layout.astro";
-
-import "@/styles/globals.css";
 ---
 
-<Layout>
+<Layout title="Codetips - Home" description="Astro Blog">
   <Content>
     <Header />
-    <main class="flex flex-1 flex-col"></main>
+    <main class="flex flex-1 flex-col z-10">
+      <h1 class="text-4xl font-bold text-center">Hello, World!</h1>
+    </main>
     <Footer />
   </Content>
 </Layout>
