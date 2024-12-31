@@ -40,7 +40,7 @@ export const IconToggle = (props: IconToggleProps) => {
             "relative isolate flex items-center h-7 w-11 cursor-pointer border rounded-full duration-200",
             !isLightMode
               ? "bg-neutral-950/40 border-neutral-500/20"
-              : "bg-gray-300 border-transparent",
+              : "bg-purple-950/20 border-transparent",
           )}
           onClick={handleClick}
           type="button"

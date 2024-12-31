@@ -6,9 +6,18 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-5deg)" },
+          "50%": { transform: "rotate(5deg)" },
+        },
+      },
+      animation: {
+        wiggle: "wiggle 1s ease-in-out infinite",
+      },
       fontFamily: {
         sans: ["Playwrite GB S Variable", ...defaultTheme.fontFamily.sans],
-        serif: ["Playwrite GB J Variable", ...defaultTheme.fontFamily.serif],
+        grund: ["Playwrite DE Grund Variable", ...defaultTheme.fontFamily.serif],
       },
       borderRadius: {
         lg: "var(--radius)",

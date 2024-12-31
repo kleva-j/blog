@@ -1,4 +1,7 @@
 ---
+import Content from "@/components/Content.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
 import Head from "@/components/Head.astro";
 
 type Props = {
@@ -16,7 +19,13 @@ const { title, description } = Astro.props;
   </head>
 
   <body>
-    <slot />
+    <Content>
+      <Header />
+      <main class="flex-1 z-10 px-4">
+        <slot />
+      </main>
+      <Footer />
+    </Content>
   </body>
 </html>
 

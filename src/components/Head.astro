@@ -3,11 +3,10 @@ import "@/styles/globals.css";
 
 import "@fontsource-variable/playwrite-gb-s/wght.css";
 import "@fontsource-variable/playwrite-gb-j/wght.css";
+import "@fontsource-variable/playwrite-de-grund/wght.css";
 
 import PlaywriteGBS from "@fontsource-variable/playwrite-gb-s/files/playwrite-gb-s-fallback-wght-normal.woff2";
-import PlaywriteGBJ from "@fontsource-variable/playwrite-gb-j/files/playwrite-gb-j-fallback-wght-normal.woff2";
-import PlaywriteGBSItalic from "@fontsource-variable/playwrite-gb-s/files/playwrite-gb-s-fallback-wght-italic.woff2";
-import PlaywriteGBJItalic from "@fontsource-variable/playwrite-gb-j/files/playwrite-gb-j-fallback-wght-italic.woff2";
+import PlaywriteDeGrund from "@fontsource-variable/playwrite-de-grund/files/playwrite-de-grund-fallback-wght-normal.woff2";
 
 import { ClientRouter } from "astro:transitions";
 
@@ -51,21 +50,7 @@ const { title, description, image = "/og-image.png" } = Astro.props;
   crossorigin
 />
 <link
-  href={PlaywriteGBJ}
-  type="font/woff2"
-  rel="preload"
-  as="font"
-  crossorigin
-/>
-<link
-  href={PlaywriteGBSItalic}
-  type="font/woff2"
-  rel="preload"
-  as="font"
-  crossorigin
-/>
-<link
-  href={PlaywriteGBJItalic}
+  href={PlaywriteDeGrund}
   type="font/woff2"
   rel="preload"
   as="font"

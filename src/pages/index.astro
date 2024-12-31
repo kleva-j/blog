@@ -1,16 +1,114 @@
 ---
-import Content from "@/components/Content.astro";
-import Header from "@/components/Header.astro";
-import Footer from "@/components/Footer.astro";
+import Container from "@/components/Container.astro";
 import Layout from "@/layouts/Layout.astro";
+
+import { BriefcaseBusiness, Github } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import { Text } from "@/components/ui/typography";
+import { Button } from "@/components/ui/button";
 ---
 
 <Layout title="Codetips - Home" description="Astro Blog">
-  <Content>
-    <Header />
-    <main class="flex flex-1 flex-col z-10">
-      <h1 class="text-4xl font-bold text-center">Hello, World!</h1>
-    </main>
-    <Footer />
-  </Content>
+  <Container>
+    <div class="flex flex-col gap-y-4 max-w-3xl mx-auto">
+      <Text
+        className="group font-semibold w-full inline-flex items-end gap-x-1.5 flex-wrap"
+        variant="h4"
+        as="div"
+      >
+        Hi
+        <Text className="group-hover:animate-wiggle text-3xl">👋</Text>
+        I'm
+        <Text
+          className="font-bold underline cursor-pointer text-purple-500 hover:text-purple-600 dark:text-purple-400 dark:hover:text-purple-500 transition-colors duration-300"
+          variant="h4"
+          as="span"
+        >
+          Michael
+        </Text>
+        <Text
+          variant="h4"
+          as="span"
+          className="leading-relaxed mt-1 text-muted-foreground"
+        >
+          and this is my personal blog where I share my thoughts and experiences
+          about programming, web development, and other topics.
+        </Text>
+      </Text>
+
+      <div class="flex items-end gap-x-3.5 h-[25px]">
+        <Text as="div" className="flex items-center gap-x-2">
+          <span class="relative flex size-2.5">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-200 opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full size-2.5 bg-purple-300"
+            ></span>
+          </span>
+          <Text
+            as="span"
+            variant="span"
+            className="dark:text-neutral-400 text-neutral-500 text-sm"
+          >
+            Software Engineer at
+          </Text>
+          <Text
+            as="span"
+            variant="span"
+            className="dark:text-neutral-300 text-neutral-600 underline decoration-purple-600 dark:decoration-purple-500/50"
+          >
+            @Kleva inc
+          </Text>
+        </Text>
+
+        <Separator
+          orientation="vertical"
+          className="bg-neutral-300 dark:bg-neutral-700"
+        />
+
+        <div class="flex items-center gap-x-2">
+          <Button
+            className="border border-purple-950/30 text-purple-950/50 transition-all duration-200 dark:border-neutral-700 size-7 hover:bg-primary/[0.03] dark:hover:bg-primary/5 dark:text-neutral-400 hover:text-purple-950/60"
+            variant="ghost"
+            size="icon"
+          >
+            <BriefcaseBusiness />
+          </Button>
+          <Button
+            className="border border-purple-950/30 text-purple-950/50 transition-all duration-200 dark:border-neutral-700 size-7 hover:bg-primary/[0.03] dark:hover:bg-primary/5 dark:text-neutral-400 hover:text-purple-950/60"
+            variant="ghost"
+            size="icon"
+          >
+            <Github />
+          </Button>
+        </div>
+      </div>
+
+      <Separator className="my-8" />
+
+      <div class="flex flex-col gap-y-6">
+        <Text as="h3" variant="h3" className="font-grund">All articles</Text>
+        <div class="flex flex-1 flex-col gap-4">
+          {
+            Array.from({ length: 4 }).map(() => (
+              <div class="group flex w-full flex-col justify-between gap-1.5 rounded-lg border border-neutral-300 dark:border-neutral-700 p-4 text-muted-foreground hover:text-primary transition-all duration-200 hover:scale-[1.005] hover:border-purple-300/40 hover:bg-purple-600/5 active:scale-[1] cursor-pointer dark:bg-primary/[0.03] dark:hover:bg-primary/10">
+                <Text className="font-bold text-lg dark:text-purple-200/50 text-purple-950/50 group-hover:text-purple-600 dark:group-hover:text-purple-500 transition-colors duration-200 font-grund">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                </Text>
+                <Text
+                  variant="span"
+                  className="text-muted-foreground text-sm font-sans"
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur ab illum vel quam laudantium nesciunt ut error
+                  nemo.
+                </Text>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Container>
 </Layout>

@@ -4,25 +4,15 @@ import background from "@/assets/background.svg";
 import { SvgTexture } from "@/components/texture";
 ---
 
-<div
-  id="container"
-  class="flex flex-col h-screen relative bg-background blur-400"
->
+<div class="flex flex-col h-full relative overflow-auto bg-background blur-400">
   <SvgTexture
     className="fixed inset-0 z-[5px] h-full w-full bg-yellow-950 opacity-20"
   />
   <img
-    class="fixed inset-0 blur-[300px] z-[6px] h-56 w-full"
+    class="fixed inset-0 blur-[300px] z-[6px] h-60 w-full"
     alt="background-image"
     src={background.src}
     fetchpriority="high"
   />
   <slot />
 </div>
-
-<style>
-  #container {
-    font-family: "Playwrite GB S Variable", cursive;
-    height: 100%;
-  }
-</style>
