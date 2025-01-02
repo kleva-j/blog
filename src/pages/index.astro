@@ -88,7 +88,15 @@ import { Button } from "@/components/ui/button";
 
       <Separator className="my-8" />
 
-      <Articles />
+      <Articles limit={2} offset={0} style="full">
+        <Text as="h3" variant="h3" className="font-grund">Latest articles</Text>
+      </Articles>
+
+      <Separator className="my-8 bg-transparent" />
+
+      <Articles limit={3} offset={2} style="compact">
+        <Text as="h3" variant="h3" className="font-grund">Popular articles</Text>
+      </Articles>
     </div>
   </Container>
 </Layout>
