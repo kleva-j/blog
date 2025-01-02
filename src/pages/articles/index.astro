@@ -1,0 +1,20 @@
+---
+import Container from "@/components/Container.astro";
+import Articles from "@/components/Articles.astro";
+import Layout from "@/layouts/Layout.astro";
+
+import { Text } from "@/components/ui/typography";
+import { GoToBtn } from "@/components/go-to-btn";
+import { defaultOption } from "@/consts";
+---
+
+<Layout title="Codetips - Articles" description="Astro Blog">
+  <Container>
+    <div class="max-w-3xl mx-auto flex flex-col gap-y-4">
+      <GoToBtn />
+      <Articles limit={3} style={defaultOption.value}>
+        <Text as="h3" variant="h3" className="font-grund">All articles</Text>
+      </Articles>
+    </div>
+  </Container>
+</Layout>
