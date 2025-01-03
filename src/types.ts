@@ -3,6 +3,12 @@ export type ArticleType = {
   userId: number;
   title: string;
   body: string;
+  tags?: string[];
+  reactions?: {
+    likes: number;
+    dislikes: number;
+  };
+  views?: number;
 };
 
 export type ArticleStyle = {
@@ -13,3 +19,10 @@ export type ArticleStyle = {
 };
 
 export type ArticleStyleVariants = "compact" | "default" | "full";
+
+export type ApiPostResponse = {
+  posts: ArticleType[];
+  total: number;
+  skip: number;
+  limit: number;
+};

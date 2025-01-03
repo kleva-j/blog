@@ -1,27 +1,49 @@
 ---
-import type { ArticleStyleVariants, ArticleType } from "@/types";
+import type {
+  ArticleStyleVariants,
+  ApiPostResponse,
+  ArticleType,
+} from "@/types";
 
 import { Article } from "@/components/article";
 
 type Props = {
   limit?: number;
+  skip?: number;
+  size?: number;
   offset?: number;
   style: ArticleStyleVariants;
+  filter?: "all" | "latest" | "popular";
 };
 
-const { limit = 3, offset = 0, style = "default" } = Astro.props;
+const {
+  size = 3,
+  skip = 0,
+  limit = 10,
+  offset = 0,
+  filter = "all",
+  style = "default",
+} = Astro.props;
 
-const request = await fetch("https://jsonplaceholder.typicode.com/posts");
-const data = ((await request.json()) as ArticleType[]).slice(offset, offset + limit);
+const apiUrl = `https://dummyjson.com/posts?limit=${limit}&skip=${skip}`;
+
+const { posts } = (await (await fetch(apiUrl)).json()) as ApiPostResponse;
+
+const filterFn = {
+  all: (post: ArticleType) => post,
+  latest: (post: ArticleType) => post,
+  popular: (post: ArticleType) => post,
+};
+
+const data = (posts.filter(filterFn[filter]) || []).slice(
+  offset,
+  offset + size,
+);
 ---
 
 <div class="flex flex-col gap-y-6">
   <slot />
   <div class="flex flex-1 flex-col gap-4">
-    {
-      data.map((article) => (
-        <Article article={article} style={style} />
-      ))
-    }
+    {data.map((article) => <Article article={article} style={style} />)}
   </div>
 </div>
