@@ -28,7 +28,7 @@ export const AnimatedNavBtn = ({ href, children }: AnimatedNavBtnProps) => {
       href={href}
       className={cn(
         buttonVariants({
-          className: "bg-transparent hover:bg-transparent text-xs",
+          className: "bg-transparent hover:bg-transparent text-xs h-7",
           variant: "primary",
           size: "sm",
         }),
