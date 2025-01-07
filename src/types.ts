@@ -11,6 +11,20 @@ export type ArticleType = {
   views?: number;
 };
 
+export type ArticleFrontmatter = {
+  title: string;
+  description: string;
+  pubDate: Date;
+  date: Date;
+  draft?: boolean;
+  cover?: {
+    src: string;
+    alt: string;
+  };
+  tags?: string[];
+  author?: string;
+};
+
 export type ArticleStyle = {
   containerStyle: string;
   bodyStyle?: string;

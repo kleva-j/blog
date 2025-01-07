@@ -1,11 +1,8 @@
 ---
-import type {
-  ArticleStyleVariants,
-  ApiPostResponse,
-  ArticleType,
-} from "@/types";
-
+import type { ArticleFrontmatter, ArticleStyleVariants } from "@/types";
+import { sortItemsByDateDesc } from "@/lib/article";
 import { Article } from "@/components/article";
+import { getCollection } from "astro:content";
 
 type Props = {
   limit?: number;
@@ -16,24 +13,18 @@ type Props = {
   filter?: "all" | "latest" | "popular";
 };
 
-const {
-  size = 3,
-  skip = 0,
-  limit = 10,
-  offset = 0,
-  filter = "all",
-  style = "default",
-} = Astro.props;
-
-const apiUrl = `https://dummyjson.com/posts?limit=${limit}&skip=${skip}`;
-
-const { posts } = (await (await fetch(apiUrl)).json()) as ApiPostResponse;
+const { size = 3, offset = 0, filter = "all", style = "default" } = Astro.props;
 
 const filterFn = {
-  all: (post: ArticleType) => post,
-  latest: (post: ArticleType) => post,
-  popular: (post: ArticleType) => post,
+  all: (post: ArticleFrontmatter) => post,
+  latest: (post: ArticleFrontmatter) => post,
+  popular: (post: ArticleFrontmatter) => post,
 };
+
+const articleCollections = await getCollection("article");
+const posts = articleCollections
+  .sort(sortItemsByDateDesc)
+  .map(({ data }) => data);
 
 const data = (posts.filter(filterFn[filter]) || []).slice(
   offset,
