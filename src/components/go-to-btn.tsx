@@ -12,7 +12,7 @@ export const GoToBtn = ({ link = "/", text = "back" }: GoBackProps) => {
     <Button
       asChild
       variant="link"
-      className="w-min p-0 text-muted-foreground text-xs"
+      className="w-min p-0 text-muted-foreground text-sm"
     >
       <a href={link}>
         <ChevronLeft className="text-xs" />

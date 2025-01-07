@@ -1,0 +1,118 @@
+---
+import Content from "@/components/Content.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Head from "@/components/Head.astro";
+
+import { Separator } from "@/components/ui/separator";
+import { Text } from "@/components/ui/typography";
+import { GoToBtn } from "@/components/go-to-btn";
+import { formatDate } from "@/lib/utils";
+
+type Props = {
+  slug: string;
+  title: string;
+  description: string;
+  pubDate: Date;
+  minutesRead: string;
+};
+
+const { title, description, pubDate, minutesRead } = Astro.props;
+
+const formatedDate = formatDate(pubDate);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title={title} description={description} />
+  </head>
+
+  <body>
+    <Content>
+      <Header />
+      <main class="flex-1 z-10 px-4">
+        <div class="wrapper mt-20 mb-10 gap-y-10">
+          <div class="flex flex-col gap-y-2 content-spread">
+            <GoToBtn text="All Articles" link="/articles" />
+            <Text as="h1" variant="h3" className="font-grund mt-4 mb-2"
+              >{title}</Text
+            >
+            <div class="flex items-center justify-start gap-x-3">
+              <Text
+                variant="span"
+                className="text-xs text-purple-950 dark:text-purple-300"
+                >{formatedDate}</Text
+              >
+              <Separator orientation="vertical" className="bg-neutral-500" />
+              <Text
+                variant="span"
+                className="text-xs text-muted-foreground"
+                >{minutesRead}</Text
+              >
+            </div>
+          </div>
+          <article
+            class="content-bleed prose dark:prose-invert prose-h1:font-bold prose-h1:text-xl font-grund prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl prose-headings:underline"
+          >
+            <slot />
+          </article>
+        </div>
+      </main>
+      <Footer />
+    </Content>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .wrapper {
+    display: grid;
+
+    grid-template-columns: [full-start] 1fr [wide-start] 140px [content-start] 720px [content-end] 140px [wide-end] 1fr [full-end];
+  }
+
+  .wrapper > *,
+  .content-bleed {
+    grid-column: content;
+  }
+
+  .wrapper > .wide-bleed {
+    grid-column: wide;
+  }
+
+  .wrapper > .full-bleed {
+    grid-column: full;
+  }
+
+  .wrapper > .full-spread {
+    grid-column: full / span 2;
+  }
+
+  .wrapper > .half-spread {
+    grid-column: wide / span 2;
+  }
+
+  .wrapper > .content-spread {
+    grid-column: content / span 2;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .wrapper {
+      display: grid;
+
+      grid-template-columns: 18px 1fr 18px;
+
+      grid-template-areas:
+        ". content ."
+        "full full full"
+        ". wide .";
+    }
+  }
+</style>

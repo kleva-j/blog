@@ -61,7 +61,6 @@ const { title, description, image = "/og-image.png" } = Astro.props;
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
@@ -103,13 +102,4 @@ const { title, description, image = "/og-image.png" } = Astro.props;
   }
 </script>
 
-<script>
-  import type { TransitionBeforeSwapEvent } from "astro:transitions/client";
-  document.addEventListener("astro:before-swap", (e) =>
-    [
-      ...(e as TransitionBeforeSwapEvent).newDocument.head.querySelectorAll(
-        'link[as="font"]',
-      ),
-    ].forEach((link) => link.remove()),
-  );
-</script>
+<title>{title}</title>
