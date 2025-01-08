@@ -20,9 +20,6 @@ importers:
       '@fontsource-variable/playwrite-de-grund':
         specifier: ^5.1.1
         version: 5.1.1
-      '@fontsource-variable/playwrite-gb-j':
-        specifier: ^5.1.0
-        version: 5.1.0
       '@fontsource-variable/playwrite-gb-s':
         specifier: ^5.1.0
         version: 5.1.0
@@ -74,6 +71,9 @@ importers:
       rehype-preset-minify:
         specifier: ^7.0.1
         version: 7.0.1
+      remark-gemoji:
+        specifier: ^8.0.0
+        version: 8.0.0
       remark-toc:
         specifier: ^9.0.0
         version: 9.0.0
@@ -526,9 +526,6 @@ packages:
 
   '@fontsource-variable/playwrite-de-grund@5.1.1':
     resolution: {integrity: sha512-fcxs1MWWdrHwtijZOt5qDw2W/Utz2domKMSltlShOsjAy8eYGIf04jsRjHnvh2WE9rhMsVPP7VOZ+OUaVTsUlw==}
-
-  '@fontsource-variable/playwrite-gb-j@5.1.0':
-    resolution: {integrity: sha512-2JRnDN5FLgvMNxOXki9EbXWvEBcwE67IEXzZHLOrmnuKCPyXpkJrkZabDgTvqPBJxSmrh853qT9BNDZWqty8+A==}
 
   '@fontsource-variable/playwrite-gb-s@5.1.0':
     resolution: {integrity: sha512-HlP5SjDth7Qi6/wIlsvut7W35B7MawLNXbrh6p52MwoJorJp2kAwPvC2xCrA6HuruTmhnrQx2U0x7TudnzUVeA==}
@@ -1783,6 +1780,9 @@ packages:
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
+  gemoji@8.1.0:
+    resolution: {integrity: sha512-HA4Gx59dw2+tn+UAa7XEV4ufUKI4fH1KgcbenVA9YKSj1QJTT0xh5Mwv5HMFNN3l2OtUe3ZIfuRwSyZS5pLIWw==}
+
   gensync@1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
     engines: {node: '>=6.9.0'}
@@ -2786,6 +2786,9 @@ packages:
   rehype@13.0.2:
     resolution: {integrity: sha512-j31mdaRFrwFRUIlxGeuPXXKWQxet52RBQRvCmzl5eCefn/KGbomK5GMHNMsOJf55fgo3qw5tST5neDuarDYR2A==}
 
+  remark-gemoji@8.0.0:
+    resolution: {integrity: sha512-/fL9rc72FYwFGtOKcT+QeQdx9Q9t5v4N6KLXSDOTEgaedzK85I9judBqB2eqz+g4b0ERMejlwSOuPK+wket6aA==}
+
   remark-gfm@4.0.0:
     resolution: {integrity: sha512-U92vJgBPkbw4Zfu/IiW2oTZLSL3Zpv+uI7My2eq8JxKgqraFdU8YUGicEJCEgSbeaG+QDFqIcwwfMTOEelPxuA==}
 
@@ -3708,8 +3711,6 @@ snapshots:
   '@floating-ui/utils@0.2.8': {}
 
   '@fontsource-variable/playwrite-de-grund@5.1.1': {}
-
-  '@fontsource-variable/playwrite-gb-j@5.1.0': {}
 
   '@fontsource-variable/playwrite-gb-s@5.1.0': {}
 
@@ -5033,6 +5034,8 @@ snapshots:
     optional: true
 
   function-bind@1.1.2: {}
+
+  gemoji@8.1.0: {}
 
   gensync@1.0.0-beta.2: {}
 
@@ -6582,6 +6585,12 @@ snapshots:
       rehype-parse: 9.0.1
       rehype-stringify: 10.0.1
       unified: 11.0.5
+
+  remark-gemoji@8.0.0:
+    dependencies:
+      '@types/mdast': 4.0.4
+      gemoji: 8.1.0
+      mdast-util-find-and-replace: 3.0.1
 
   remark-gfm@4.0.0:
     dependencies:
