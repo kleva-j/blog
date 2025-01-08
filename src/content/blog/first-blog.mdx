@@ -12,9 +12,12 @@ tags: ["code", "test"]
 author: "John Doe"
 ---
 
+### Table of contents
+
+
 ## Congue justo vulputate nascetur convallis varius orci fringilla nulla pharetr
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit, augue malesuada natoque in ad erat aliquam facilisi, lacus rhoncus mattis nostra et a. Mauris malesuada rutrum dis libero egestas mus vulputate, fermentum ad morbi phasellus faucibus tellus leo urna, blandit ullamcorper diam imperdiet dictumst litora. Fringilla eros malesuada lobortis mi odio metus leo, blandit imperdiet augue fames aliquam ultricies tortor massa, duis magnis hendrerit id magna sociosqu. Aptent mi imperdiet id sapien suscipit ut netus turpis, lacinia ac porttitor potenti dui taciti at egestas, fermentum neque nascetur sodales tortor nunc congue.
+Lorem ipsum dolor sit amet consectetur adipiscing elit, :smile: augue malesuada natoque in ad erat aliquam facilisi, lacus rhoncus mattis nostra et a. Mauris malesuada rutrum dis libero egestas mus vulputate, fermentum ad morbi phasellus faucibus tellus leo urna, blandit ullamcorper diam imperdiet dictumst litora. Fringilla eros malesuada lobortis mi odio metus leo, blandit imperdiet augue fames aliquam ultricies tortor massa, duis magnis hendrerit id magna sociosqu. Aptent mi imperdiet id sapien suscipit ut netus turpis, lacinia ac porttitor potenti dui taciti at egestas, fermentum neque nascetur sodales tortor nunc congue.
 
 Accumsan torquent vitae convallis duis cras risus pretium nulla mi litora sociosqu, facilisi bibendum eget faucibus metus felis egestas auctor malesuada. Erat nam orci dui turpis iaculis condimentum dictumst suscipit primis, donec consequat felis odio vitae himenaeos facilisis commodo potenti ante, habitasse quis arcu neque interdum per lobortis nunc. Ultricies lobortis ullamcorper sagittis et sollicitudin sociis sed dignissim posuere, nisi pharetra erat varius id aenean lacinia commodo morbi primis, ornare diam proin nunc volutpat nec dui egestas.
 
@@ -63,3 +66,11 @@ Dignissim tristique venenatis diam auctor malesuada aenean aliquam ornare iaculi
 Imperdiet sagittis sapien lobortis quis consequat blandit habitant porta potenti sed, natoque dictum nulla phasellus viverra felis pretium parturient. Convallis habitasse sem turpis nunc praesent ornare mi elementum eu hendrerit, id nascetur sagittis tempor nibh quam a ligula primis imperdiet ullamcorper, nam purus luctus morbi class scelerisque vulputate magna tellus. Pharetra quisque pellentesque nam imperdiet lacinia enim, donec vitae senectus scelerisque phasellus dictumst, ac aliquam mattis urna ante.
 
 Habitant praesent pulvinar scelerisque per phasellus lobortis velit, magnis odio himenaeos primis curabitur senectus, nascetur ullamcorper convallis nunc placerat nisl. Porta tellus commodo praesent ullamcorper cursus senectus tempor vivamus, penatibus eu purus ultrices posuere mi sodales, urna quisque accumsan imperdiet convallis aptent nisl. Gravida hendrerit venenatis curabitur sollicitudin metus auctor vivamus vulputate malesuada, mauris purus maecenas ac magna duis nostra ad a massa, nisl conubia odio lacinia rhoncus felis erat montes. Nostra eros proin mi venenatis enim semper ad magnis netus, in vestibulum ornare ac fusce aliquet aptent non condimentum faucibus, tempor arcu potenti blandit magna consequat luctus nam.
+
+import { Code } from "astro:components";
+
+<Code code={`const foo = 'bar';`} lang="js" />
+
+<Code code={`const foo = 'bar';`} lang="js" theme="andromeeda" />
+
+<Code code={`const foo = 'bar';`} lang="js" wrap />

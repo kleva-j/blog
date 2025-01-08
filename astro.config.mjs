@@ -18,16 +18,15 @@ export default defineConfig({
     pageInsight(),
     mdx({
       syntaxHighlight: "shiki",
-      shikiConfig: { theme: "dracula" },
+      shikiConfig: { theme: "synthwave-84" },
       rehypePlugins: [rehypePresetMinify],
       remarkRehype: { footnoteLabel: "Footnotes" },
-      gfm: false,
     }),
   ],
   markdown: {
     remarkPlugins: [
       remarkReadingTime,
-      [remarkToc, { heading: "toc", maxDepth: 3 }],
+      [remarkToc, { heading: "table of contents" }],
     ],
   },
 });
