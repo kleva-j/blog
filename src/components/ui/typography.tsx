@@ -1,5 +1,6 @@
 import { type VariantProps, cva } from "class-variance-authority";
 
+import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib/utils";
 
 const typographyVariants = cva(
@@ -24,14 +25,18 @@ interface TypographyProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof typographyVariants> {
   as?: React.ElementType;
+  asChild?: boolean;
 }
 
 export function Text({
+  asChild = false,
   className,
-  as: Comp = "p",
+  as = "p",
   variant,
   ...props
 }: TypographyProps) {
+  const Comp = asChild ? Slot : as;
+
   return (
     <Comp
       className={cn(typographyVariants({ variant }), className)}
