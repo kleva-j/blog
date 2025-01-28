@@ -4,59 +4,26 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Head from "@/components/Head.astro";
 
-import { Separator } from "@/components/ui/separator";
-import { Text } from "@/components/ui/typography";
-import { GoToBtn } from "@/components/go-to-btn";
-import { formatDate } from "@/lib/utils";
-
 type Props = {
-  slug: string;
   title: string;
   description: string;
-  pubDate: Date;
-  minutesRead: string;
 };
 
-const { title, description, pubDate, minutesRead } = Astro.props;
-
-const formatedDate = formatDate(pubDate);
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <Head title={title} description={description} />
-  </head>
+  <Head title={title} description={description} />
 
   <body>
     <Content>
       <Header />
       <main class="flex-1 z-10 px-4">
-        <div class="wrapper mt-20 mb-10 gap-y-10">
-          <div class="flex flex-col gap-y-2 content-spread">
-            <GoToBtn text="All Articles" link="/articles" />
-            <Text as="h1" variant="h3" className="font-grund mt-4 mb-2"
-              >{title}</Text
-            >
-            <div class="flex items-center justify-start gap-x-3">
-              <Text
-                variant="span"
-                className="text-xs text-purple-950 dark:text-purple-300"
-                >{formatedDate}</Text
-              >
-              <Separator orientation="vertical" className="bg-neutral-500" />
-              <Text
-                variant="span"
-                className="text-xs text-muted-foreground"
-                >{minutesRead}</Text
-              >
-            </div>
-          </div>
-          <article
-            class="content-bleed prose dark:prose-invert prose-h1:font-bold prose-h1:text-xl font-grund prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl prose-headings:underline"
-          >
-            <slot />
-          </article>
+        <div class="wrapper mt-20 mb-10 gap-y-10 grid-rows-[auto]">
+          <slot name="header-section" />
+          <slot name="toc-section" />
+          <slot name="content-section" />
         </div>
       </main>
       <Footer />
@@ -64,12 +31,17 @@ const formatedDate = formatDate(pubDate);
   </body>
 </html>
 
-<style>
+<style is:global>
   html,
   body {
     margin: 0;
     width: 100%;
     height: 100%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-margin-top: 100px;
   }
 
   .wrapper {
@@ -101,6 +73,10 @@ const formatedDate = formatDate(pubDate);
 
   .wrapper > .content-spread {
     grid-column: content / span 2;
+  }
+
+  .wrapper > .split-bleed {
+    grid-column: content-end / span 2;
   }
 
   @media screen and (max-width: 1000px) {
