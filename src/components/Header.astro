@@ -1,10 +1,12 @@
 ---
-import { AnimatedNavBtn } from "@/components/animated-nav-btn";
 import { IconToggle } from "@/components/icon-toggle";
 import { FolderOpen, Home } from "lucide-react";
+import { NavItem } from "@/components/nav-item";
 
 const pathname = Astro.url.pathname;
+
 const isArticles = pathname === "/articles" || pathname.startsWith("/articles");
+const href = !isArticles ? "/articles" : "/";
 const isHome = pathname === "/";
 ---
 
@@ -18,19 +20,18 @@ const isHome = pathname === "/";
       ></span>
       <nav class="flex items-center gap-3 lg:gap-8">
         {
-          !isArticles && (
-            <AnimatedNavBtn href="/articles">
-              <FolderOpen />
-              Articles
-            </AnimatedNavBtn>
+          !isHome && (
+            <NavItem href={href} label="Home" icon={Home} client:load />
           )
         }
         {
-          !isHome && (
-            <AnimatedNavBtn href="/">
-              <Home />
-              Home
-            </AnimatedNavBtn>
+          !isArticles && (
+            <NavItem
+              href={href}
+              label="Articles"
+              icon={FolderOpen}
+              client:load
+            />
           )
         }
         <IconToggle client:load />
