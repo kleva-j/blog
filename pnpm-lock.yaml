@@ -17,12 +17,18 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.3
         version: 5.1.3(astro@5.0.9(@types/node@22.10.2)(jiti@1.21.7)(rollup@4.28.1)(typescript@5.7.2)(yaml@2.6.1))(tailwindcss@3.4.17)
+      '@fontsource-variable/inter':
+        specifier: ^5.1.1
+        version: 5.1.1
       '@fontsource-variable/playwrite-de-grund':
         specifier: ^5.1.1
         version: 5.1.1
       '@fontsource-variable/playwrite-gb-s':
         specifier: ^5.1.0
         version: 5.1.0
+      '@fontsource/poppins':
+        specifier: ^5.1.1
+        version: 5.1.1
       '@radix-ui/react-dropdown-menu':
         specifier: ^2.1.4
         version: 2.1.4(@types/react-dom@19.0.2(@types/react@19.0.2))(@types/react@19.0.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -524,11 +530,17 @@ packages:
   '@floating-ui/utils@0.2.8':
     resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
 
+  '@fontsource-variable/inter@5.1.1':
+    resolution: {integrity: sha512-OpXFTmiH6tHkYijMvQTycFKBLK4X+SRV6tet1m4YOUH7SzIIlMqDja+ocDtiCA72UthBH/vF+3ZtlMr2rN/wIw==}
+
   '@fontsource-variable/playwrite-de-grund@5.1.1':
     resolution: {integrity: sha512-fcxs1MWWdrHwtijZOt5qDw2W/Utz2domKMSltlShOsjAy8eYGIf04jsRjHnvh2WE9rhMsVPP7VOZ+OUaVTsUlw==}
 
   '@fontsource-variable/playwrite-gb-s@5.1.0':
     resolution: {integrity: sha512-HlP5SjDth7Qi6/wIlsvut7W35B7MawLNXbrh6p52MwoJorJp2kAwPvC2xCrA6HuruTmhnrQx2U0x7TudnzUVeA==}
+
+  '@fontsource/poppins@5.1.1':
+    resolution: {integrity: sha512-PQVKHGQOK+UpVNPzTFF9Z9ez3CIDkunfvRXGH95hiDoqWJc1shW4JFqe4tEoqnq7RtZaYrw9aWQq58L4eny5xg==}
 
   '@formatjs/ecma402-abstract@2.3.1':
     resolution: {integrity: sha512-Ip9uV+/MpLXWRk03U/GzeJMuPeOXpJBSB5V1tjA6kJhvqssye5J5LoYLc7Z5IAHb7nR62sRoguzrFiVCP/hnzw==}
@@ -3710,9 +3722,13 @@ snapshots:
 
   '@floating-ui/utils@0.2.8': {}
 
+  '@fontsource-variable/inter@5.1.1': {}
+
   '@fontsource-variable/playwrite-de-grund@5.1.1': {}
 
   '@fontsource-variable/playwrite-gb-s@5.1.0': {}
+
+  '@fontsource/poppins@5.1.1': {}
 
   '@formatjs/ecma402-abstract@2.3.1':
     dependencies:

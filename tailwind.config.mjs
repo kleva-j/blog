@@ -1,5 +1,9 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
@@ -16,8 +20,13 @@ export default {
         wiggle: "wiggle 1s ease-in-out infinite",
       },
       fontFamily: {
+        grund: [
+          "Playwrite DE Grund Variable",
+          ...defaultTheme.fontFamily.serif,
+        ],
         sans: ["Playwrite GB S Variable", ...defaultTheme.fontFamily.sans],
-        grund: ["Playwrite DE Grund Variable", ...defaultTheme.fontFamily.serif],
+        serif: ["Poppins", ...defaultTheme.fontFamily.serif],
+        inter: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -68,5 +77,17 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+    addVariablesForColors,
+  ],
 };
+
+function addVariablesForColors({ addBase, theme }) {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
+  );
+  addBase({ ":root": newVars });
+}

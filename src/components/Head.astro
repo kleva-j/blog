@@ -1,10 +1,12 @@
 ---
 import "@/styles/globals.css";
 
+import "@fontsource/poppins/latin.css";
 import "@fontsource-variable/playwrite-gb-s/wght.css";
-import "@fontsource-variable/playwrite-gb-j/wght.css";
 import "@fontsource-variable/playwrite-de-grund/wght.css";
+import "@fontsource-variable/inter";
 
+import Inter from "@fontsource-variable/inter/files/inter-latin-standard-normal.woff2";
 import PlaywriteGBS from "@fontsource-variable/playwrite-gb-s/files/playwrite-gb-s-fallback-wght-normal.woff2";
 import PlaywriteDeGrund from "@fontsource-variable/playwrite-de-grund/files/playwrite-de-grund-fallback-wght-normal.woff2";
 
@@ -21,85 +23,87 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
 const { title, description, image = "/og-image.png" } = Astro.props;
 ---
 
-<ClientRouter />
+<head>
+  <ClientRouter />
 
-<!-- Global Metadata -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link
-  rel="icon"
-  type="image/svg+xml"
-  href="/favicon-dark.svg"
-  media="(prefers-color-scheme: dark)"
-/>
-<link
-  rel="icon"
-  type="image/svg+xml"
-  href="/favicon-light.svg"
-  media="(prefers-color-scheme: light)"
-/>
-<link rel="icon" type="image/x-icon" href="/favicon-light.svg" />
-<meta name="generator" content={Astro.generator} />
+  <!-- Global Metadata -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="/favicon-dark.svg"
+    media="(prefers-color-scheme: dark)"
+  />
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="/favicon-light.svg"
+    media="(prefers-color-scheme: light)"
+  />
+  <link rel="icon" type="image/x-icon" href="/favicon-light.svg" />
+  <meta name="generator" content={Astro.generator} />
 
-<!-- Font preloads -->
-<link
-  href={PlaywriteGBS}
-  type="font/woff2"
-  rel="preload"
-  as="font"
-  crossorigin
-/>
-<link
-  href={PlaywriteDeGrund}
-  type="font/woff2"
-  rel="preload"
-  as="font"
-  crossorigin
-/>
+  <!-- Font preloads -->
+  <link
+    href={PlaywriteGBS}
+    type="font/woff2"
+    rel="preload"
+    as="font"
+    crossorigin
+  />
+  <link
+    href={PlaywriteDeGrund}
+    type="font/woff2"
+    rel="preload"
+    as="font"
+    crossorigin
+  />
+  <link href={Inter} type="font/woff2" rel="preload" as="font" crossorigin />
 
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalURL} />
 
-<!-- Primary Meta Tags -->
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+  <!-- Primary Meta Tags -->
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={Astro.url} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(image, Astro.url)} />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={Astro.url} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<script is:inline>
-  const getThemePreference = () => {
-    const theme =
-      typeof localStorage !== "undefined" && localStorage.getItem("theme");
-    if (theme) return theme;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  };
-  const isDark = getThemePreference() === "dark";
-  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+  <script is:inline>
+    const getThemePreference = () => {
+      const theme =
+        typeof localStorage !== "undefined" && localStorage.getItem("theme");
+      if (theme) return theme;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    };
+    const isDark = getThemePreference() === "dark";
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
-  if (typeof localStorage !== "undefined") {
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-  }
-</script>
-
-<title>{title}</title>
+    if (typeof localStorage !== "undefined") {
+      const observer = new MutationObserver(() => {
+        const isDark = document.documentElement.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+    }
+  </script>
+</head>
+<!-- <title>{title}</title> -->
