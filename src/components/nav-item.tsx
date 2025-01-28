@@ -1,30 +1,17 @@
-import { type PropsWithChildren, useRef, useState } from "react";
+import type { LucideIcon } from "lucide-react";
 
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export interface AnimatedNavBtnProps extends PropsWithChildren {
+export interface NavItemProps {
   href: string;
+  label: string;
+  icon: LucideIcon;
 }
 
-export const AnimatedNavBtn = ({ href, children }: AnimatedNavBtnProps) => {
-  const [isHidden, setIsHidden] = useState(false);
-
-  const { scrollY } = useScroll();
-
-  const prevYRef = useRef(0);
-
-  useMotionValueEvent(scrollY, "change", (y) => {
-    const diff = y - prevYRef.current;
-    if (Math.abs(diff) > 50) {
-      setIsHidden(diff > 0);
-      prevYRef.current = y;
-    }
-  });
-
+export const NavItem = ({ href, icon: Icon, label }: NavItemProps) => {
   return (
-    <motion.a
+    <a
       href={href}
       className={cn(
         buttonVariants({
@@ -33,13 +20,9 @@ export const AnimatedNavBtn = ({ href, children }: AnimatedNavBtnProps) => {
           size: "sm",
         }),
       )}
-      variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-      animate={isHidden ? "hidden" : "visible"}
-      onFocusCapture={() => setIsHidden(false)}
-      transition={{ duration: 0.2 }}
-      whileHover="visible"
     >
-      {children}
-    </motion.a>
+      <Icon />
+      {label}
+    </a>
   );
 };
