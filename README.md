@@ -46,3 +46,14 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+#### Useful links
+- [Dev.to Mermaid article](https://dev.to/fkurz/extending-astrojs-markdown-processing-with-remark-and-rehype-plugins-m1k)
+- [Remark all the things](https://jordemort.dev/blog/remark-all-the-things/)
+- [Shiki decorations](https://shiki.matsu.io/guide/decorations)
+- [Shiki themes](https://shiki.matsu.io/guide/themes)
+- [Shiki transformers](https://shiki.matsu.io/guide/transformers)
+
+#### Helpful commands
+- `pnpm astro sync` - Sync generated contents and types
+- `pnpm format` - Format code
