@@ -1,0 +1,49 @@
+---
+import { Separator } from "@/components/ui/separator";
+import { Text } from "@/components/ui/typography";
+import { GoToBtn } from "@/components/go-to-btn";
+import { Hash } from "lucide-react";
+
+type Props = {
+  title: string;
+  formatedDate: string;
+  minutesRead: string;
+  tags?: string[];
+};
+
+const { title, formatedDate, minutesRead, tags } = Astro.props;
+---
+
+<div class="flex flex-col gap-y-2 content-bleed row-start-1">
+  <GoToBtn text="All Articles" link="/articles" />
+  <Text as="h1" variant="h3" className="font-grund mt-4 mb-2">{title}</Text>
+  <div class="flex items-center justify-start gap-x-3">
+    <Text
+      variant="span"
+      className="text-xs text-purple-950 dark:text-purple-300"
+    >
+      {formatedDate}
+    </Text>
+    <Separator orientation="vertical" className="bg-neutral-500" />
+    <Text variant="span" className="text-xs text-muted-foreground">
+      {minutesRead}
+    </Text>
+  </div>
+
+  {
+    tags && (
+      <ul class="flex items-center gap-2 flex-wrap mt-2">
+        {tags.map((tag) => (
+          <Text
+            as="li"
+            variant="span"
+            className="text-purple-600 dark:text-purple-300 flex items-center underline underline-offset-4 decoration-dotted text-sm"
+          >
+            <Hash className="size-4" />
+            {tag}
+          </Text>
+        ))}
+      </ul>
+    )
+  }
+</div>
