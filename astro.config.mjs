@@ -19,16 +19,13 @@ export default defineConfig({
     pageInsight(),
     mdx({
       syntaxHighlight: "shiki",
-      shikiConfig: { theme: "synthwave-84" },
       rehypePlugins: [rehypePresetMinify],
+      shikiConfig: { theme: "synthwave-84" },
       remarkRehype: { footnoteLabel: "Footnotes" },
     }),
   ],
   markdown: {
-    remarkPlugins: [
-      remarkReadingTime,
-      [remarkToc, { heading: "table of contents" }],
-      remarkGemoji,
-    ],
+    remarkPlugins: [remarkReadingTime, remarkToc, remarkGemoji],
+    remarkRehype: { footnoteLabel: "Footnotes" },
   },
 });
