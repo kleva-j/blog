@@ -11,20 +11,13 @@ const { headings } = Astro.props;
 <aside class="split-bleed row-start-1 sticky top-20 pl-10">
   <div class="relative">
     <Card
-      className="absolute top-0 w-full max-w-[220px] bg-transparent border-transparent border-y-neutral-400/50 dark:border-y-neutral-600/40 shadow-none rounded-none"
+      className="absolute top-0 w-full max-w-[220px] bg-transparent border-transparent shadow-none rounded-none"
     >
-      <!-- <CardHeader className="px-0">
-        <CardTitle className="text-base bg-purple-900/20 dark:bg-purple-400/10 font-inter">On this page</CardTitle>
-      </CardHeader> -->
-      <CardHeader className="px-0">
-        <CardTitle
-          className="text-base bg-purple-900/20 dark:bg-purple-400/10 font-inter"
-        >
-          Content
-        </CardTitle>
+      <CardHeader className="px-0 py-2">
+        <CardTitle className="text-base font-inter">Content</CardTitle>
       </CardHeader>
-      <CardContent className="px-0 py-6">
-        <ul class="space-y-1.5 list-inside list-disc text-sm">
+      <CardContent className="p-0">
+        <ul class="space-y-1.5 list-outside pl-3 text-sm">
           {
             headings.map(({ depth, slug, text }) => (
               <li
