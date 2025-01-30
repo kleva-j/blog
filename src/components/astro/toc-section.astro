@@ -16,11 +16,20 @@ const { headings } = Astro.props;
       <!-- <CardHeader className="px-0">
         <CardTitle className="text-base bg-purple-900/20 dark:bg-purple-400/10 font-inter">On this page</CardTitle>
       </CardHeader> -->
+      <CardHeader className="px-0">
+        <CardTitle
+          className="text-base bg-purple-900/20 dark:bg-purple-400/10 font-inter"
+        >
+          Content
+        </CardTitle>
+      </CardHeader>
       <CardContent className="px-0 py-6">
         <ul class="space-y-1.5 list-inside list-disc text-sm">
           {
             headings.map(({ depth, slug, text }) => (
-              <li class={`pl-${(depth - 2) * 2} text-sm font-inter hover:text-purple-600 hover:dark:text-purple-500 hover:underline`}>
+              <li
+                class={`pl-${(depth - 2) * 2} text-sm font-inter hover:text-purple-600 hover:dark:text-purple-500 hover:underline`}
+              >
                 <a href={`#${slug}`}>{text}</a>
               </li>
             ))
