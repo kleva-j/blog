@@ -14,7 +14,7 @@ import { Code } from "astro:components";
 
 ## First Section
 
-I got ✨a lot✨ of positive feedback from my <a class="no-underline hover:underline hover:bg-purple-100/30 transition-all duration-300">Guide to creating animations that spark joy with Framer Motion</a>, and it's undeniable that this library has piqued many developers' interests in the world of web-based animations.
+I got ✨a lot✨ of positive feedback from my <a class="cursor-pointer no-underline border border-transparent hover:border-b-purple-500 transition-all duration-300">Guide to creating animations that spark joy with Framer Motion</a>, and it's undeniable that this library has piqued many developers' interests in the world of web-based animations.
 
 While I introduced in this previous post many of the foundational pieces that compose an animation, and how one can orchestrate multiple transitions very easily with Framer Motion, I did not touch upon many of the more advanced features that this library provides.
 
@@ -24,7 +24,7 @@ Ever wondered how to propagate animations throughout several components or to or
 
 One of the first advanced patterns I got to encounter when I tried to add some micro-interactions with Framer Motion on my projects is **propagation**. I quickly learned that it's possible to propagate **changes of variants** from a **parent motion component to any child motion component**. However, this got me confused at the beginning because it broke some of the mental models I originally had when it comes to defining animations.
 
-Remember in <a class="no-underline hover:underline hover:bg-purple-100/30 transition-all duration-300" href="/blog/first-blog">my previous blog post</a> when we learned that every Framer Motion Animation needed 3 properties (props) `initial`, `animate`, `transition`, to define a transition/animation? Well, for this pattern **that's not entirely true**.
+Remember in <a class="cursor-pointer no-underline border border-transparent hover:border-b-purple-500 transition-all duration-300" href="/blog/first-blog">my previous blog post</a> when we learned that every Framer Motion Animation needed 3 properties (props) `initial`, `animate`, `transition`, to define a transition/animation? Well, for this pattern **that's not entirely true**.
 
 Framer Motion allows variants to "flow down" through **every motion child component** as long as these motion components do not have an `animate` prop defined. **Only the parent motion component**, in this case, **defines the** `animate` **prop**. The children themselves only define the behavior they intent to have for those variants.
 
@@ -54,3 +54,26 @@ Habitant praesent pulvinar scelerisque per phasellus lobortis velit, magnis odio
 <Code code={`const foo = 'bar';`} lang="js" theme="andromeeda" />
 
 <Code code={`const foo = 'bar';`} lang="js" wrap />
+
+```ts
+console.log("highlighted"); // [!code highlight]
+console.log("highlighted"); // [!code highlight]
+console.log("not highlighted");
+```
+
+```tsx
+console.log("Introduction.")
+
+console.log("Subtraction.") // [!code focus] [!code --]
+console.log("Addition.") // [!code focus] [!code ++]
+console.log("In focus.") // [!code focus]
+
+console.log("End.")
+```
+
+```js {1,3-4}
+console.log('1')
+console.log('2')
+console.log('3')
+console.log('4')
+```
