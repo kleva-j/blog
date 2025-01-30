@@ -1,14 +1,15 @@
 ---
 import "@/styles/globals.css";
 
-import "@fontsource/poppins/latin.css";
-import "@fontsource-variable/playwrite-gb-s/wght.css";
 import "@fontsource-variable/playwrite-de-grund/wght.css";
+import "@fontsource-variable/playwrite-gb-s/wght.css";
+import "@fontsource/poppins/latin.css";
 import "@fontsource-variable/inter";
 
 import Inter from "@fontsource-variable/inter/files/inter-latin-standard-normal.woff2";
 import PlaywriteGBS from "@fontsource-variable/playwrite-gb-s/files/playwrite-gb-s-fallback-wght-normal.woff2";
 import PlaywriteDeGrund from "@fontsource-variable/playwrite-de-grund/files/playwrite-de-grund-fallback-wght-normal.woff2";
+import InterFont from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2";
 
 import { ClientRouter } from "astro:transitions";
 
@@ -55,6 +56,13 @@ const { title, description, image = "/og-image.png" } = Astro.props;
   <link
     href={PlaywriteDeGrund}
     type="font/woff2"
+    rel="preload"
+    as="font"
+    crossorigin
+  />
+  <link
+    type="font/woff2"
+    href={InterFont}
     rel="preload"
     as="font"
     crossorigin

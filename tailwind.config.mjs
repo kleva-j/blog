@@ -25,8 +25,8 @@ export default {
           ...defaultTheme.fontFamily.serif,
         ],
         sans: ["Playwrite GB S Variable", ...defaultTheme.fontFamily.sans],
-        serif: ["Poppins", ...defaultTheme.fontFamily.serif],
-        inter: ["Inter", ...defaultTheme.fontFamily.sans],
+        poppins: ["Poppins", ...defaultTheme.fontFamily.serif],
+        inter: ["Inter Variable"],
       },
       borderRadius: {
         lg: "var(--radius)",
