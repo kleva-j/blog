@@ -10,6 +10,7 @@ tags: ["code", "test"]
 author: "John Doe"
 ---
 
+import { CardHint } from "@/components/blocks/CardHint";
 import { Code } from "astro:components";
 
 ## First Section
@@ -62,18 +63,58 @@ console.log("not highlighted");
 ```
 
 ```tsx
-console.log("Introduction.")
+console.log("Introduction.");
 
-console.log("Subtraction.") // [!code focus] [!code --]
-console.log("Addition.") // [!code focus] [!code ++]
-console.log("In focus.") // [!code focus]
+console.log("Subtraction."); // [!code focus] [!code --]
+console.log("Addition."); // [!code focus] [!code ++]
+console.log("In focus."); // [!code focus]
 
-console.log("End.")
+console.log("End.");
 ```
 
 ```js {1,3-4}
-console.log('1')
-console.log('2')
-console.log('3')
-console.log('4')
+console.log("1");
+console.log("2");
+console.log("3");
+console.log("4");
 ```
+
+<CardHint type="info" title="Template Info Callout">
+  <p className="my-0">Hello, This is not a test</p>
+</CardHint>
+
+<br />
+
+<CardHint type="error" title="Template Error Callout">
+  <p className="my-0">Hello, This is not a test</p>
+</CardHint>
+
+<br />
+
+<CardHint type="warning" title="Template Warning Callout">
+  <p className="my-0">Hello, This is not a test</p>
+</CardHint>
+
+<br />
+
+<CardHint type="info">
+  <p className="my-0">Hello, This is not a test</p>
+</CardHint>
+
+<br />
+
+<CardHint type="error">
+  <p className="my-0">Hello, This is not a test</p>
+</CardHint>
+
+<br />
+
+<CardHint type="warning">
+  <p className="my-0">Hello, This is not a test</p>
+</CardHint>
+
+<br />
+
+<CardHint type="warning" calloutText="What about those matrices?!">
+  <p className="my-0">Hello, This is not a test</p>
+</CardHint>
